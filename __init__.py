@@ -2,7 +2,7 @@ import time
 import os
 
 def get_allsms():
-    getsms = os.system("sudo gammu getallsms").read()
+    getsms = os.system("gammu getallsms")
     print(getsms)
 
 def send_sms():
@@ -10,12 +10,13 @@ def send_sms():
     sms_text = input("Enter message\n")
     sms_no = int(input("Enter Phone no\n"))
 
-    os.system("echo {} | gammu sendsms TEXT {}".format(sms_text, sms_no))
+    output = os.system("echo {} | gammu sendsms TEXT {}".format(sms_text, sms_no))
+    print(output)
 
 def main():
-        print("main function")
-        # get_allsms()
-        send_sms()
+        os.system("clear")
+        get_allsms()
+        # send_sms()
 
 
 if __name__ == '__main__':
